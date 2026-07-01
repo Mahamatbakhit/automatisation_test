@@ -1,0 +1,676 @@
+2026-06-22 14:23:21,176 -  nornir.core -     INFO -        run() - Running task 'ajouter_vlan' with args {} on 1 hosts
+2026-06-22 14:23:21,576 - nornir.core.task -    ERROR -      start() - Host 'nexus-7k': task 'send_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir_scrapli/tasks/core/send_configs.py", line 59, in send_configs
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir_scrapli/connection.py", line 106, in open
+    connection.open()
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/scrapli/driver/base/sync_driver.py", line 106, in open
+    self.channel.channel_authenticate_ssh(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/scrapli/decorators.py", line 224, in decorate
+    return _multiprocessing_timeout(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/scrapli/decorators.py", line 115, in _multiprocessing_timeout
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/scrapli/channel/sync_channel.py", line 297, in channel_authenticate_ssh
+    self._ssh_message_handler(output=authenticate_buf)
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/scrapli/channel/base_channel.py", line 481, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: No matching host key type found for host, their offer: ssh-rsa
+
+2026-06-22 14:23:21,576 - nornir.core.task -    ERROR -      start() - Host 'nexus-7k': task 'ajouter_vlan' failed with traceback:
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/creer_vlan.py", line 19, in ajouter_vlan
+    task.run(task=send_configs, configs=commandes)
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_configs (failed)
+
+
+2026-06-22 14:35:57,454 -  nornir.core -     INFO -        run() - Running task 'ajouter_vlan' with args {} on 1 hosts
+2026-06-22 14:35:57,459 - nornir.core.task -    ERROR -      start() - Host 'nexus-7k': task 'send_configs' failed with traceback:
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir_scrapli/tasks/core/send_configs.py", line 59, in send_configs
+    scrapli_conn = task.host.get_connection("scrapli", task.nornir.config)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 475, in get_connection
+    conn = self.get_connection_parameters(connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 414, in get_connection_parameters
+    hostname=r.hostname if r.hostname is not None else self.hostname,
+                           ^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'hostname'
+
+2026-06-22 14:35:57,460 - nornir.core.task -    ERROR -      start() - Host 'nexus-7k': task 'ajouter_vlan' failed with traceback:
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/creer_vlan.py", line 37, in ajouter_vlan
+    task.run(task=send_configs, configs=commandes)
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: send_configs (failed)
+
+
+2026-06-23 11:14:22,935 -  nornir.core -     INFO -        run() - Running task 'tcp_ping' with args {'ports': [2201]} on 1 hosts
+2026-06-23 11:45:49,336 -  nornir.core -     INFO -        run() - Running task 'tcp_ping' with args {'ports': [2201]} on 1 hosts
+2026-06-23 11:46:16,373 -  nornir.core -     INFO -        run() - Running task 'tcp_ping' with args {'ports': [22]} on 1 hosts
+2026-06-23 13:49:32,236 -  nornir.core -     INFO -        run() - Running task 'tcp_ping' with args {'ports': [22]} on 1 hosts
+2026-06-23 14:10:47,709 -  nornir.core -     INFO -        run() - Running task 'tcp_ping' with args {'ports': [22], 'ssh_config': {'PubkeyAcceptedKeyTypes': '+ssh-rsa', 'HostKeyAlgorithms': '+ssh-rsa'}} on 1 hosts
+2026-06-23 14:10:47,713 - nornir.core.task -    ERROR -      start() - Host 'switch_nexus': task 'tcp_ping' failed with traceback:
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: tcp_ping() got an unexpected keyword argument 'ssh_config'
+
+2026-06-23 14:16:53,339 -  nornir.core -     INFO -        run() - Running task 'send_command' with args {} on 1 hosts
+2026-06-23 14:16:53,347 - nornir.core.task -    ERROR -      start() - Host 'switch_nexus': task 'napalm_cli' failed with traceback:
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir_napalm/plugins/tasks/napalm_cli.py", line 19, in napalm_cli
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "cisco_nxos". Is the library installed?
+
+2026-06-23 14:16:53,348 - nornir.core.task -    ERROR -      start() - Host 'switch_nexus': task 'send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/test.py", line 7, in send_command
+    result = task.run(
+             ^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_cli (failed)
+
+
+2026-06-23 14:17:39,108 -  nornir.core -     INFO -        run() - Running task 'send_command' with args {} on 1 hosts
+2026-06-23 14:17:39,111 - nornir.core.task -    ERROR -      start() - Host 'switch_nexus': task 'napalm_cli' failed with traceback:
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir_napalm/plugins/tasks/napalm_cli.py", line 19, in napalm_cli
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "cisco_nxos". Is the library installed?
+
+2026-06-23 14:17:39,111 - nornir.core.task -    ERROR -      start() - Host 'switch_nexus': task 'send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/test.py", line 7, in send_command
+    result = task.run(
+             ^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 173, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: napalm_cli (failed)
+
+
+2026-06-23 15:13:04,245 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show version', 'ssh_extra_args': {'PubkeyAcceptedKeyTypes': '+ssh-rsa', 'HostKeyAlgorithms': '+ssh-rsa'}} on 1 hosts
+2026-06-23 15:13:07,311 - nornir.core.task -    ERROR -      start() - Host 'switch_nexus': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/base_connection.py", line 1139, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/paramiko/client.py", line 407, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 192.168.220.130
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/ssh_dispatcher.py", line 516, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/base_connection.py", line 490, in __init__
+    self._open()
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/base_connection.py", line 495, in _open
+    self.establish_connection()
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/base_connection.py", line 1161, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_nxos 192.168.220.130:22
+
+
+
+2026-06-23 15:14:44,779 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show version', 'ssh_extra_args': {'PubkeyAcceptedKeyTypes': '+ssh-rsa', 'HostKeyAlgorithms': '+ssh-rsa'}} on 1 hosts
+2026-06-23 15:14:45,954 - nornir.core.task -    ERROR -      start() - Host 'switch_nexus': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 32, in netmiko_send_command
+    result = net_connect.send_command(command_string, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/utilities.py", line 653, in wrapper_decorator
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: BaseConnection.send_command() got an unexpected keyword argument 'ssh_extra_args'
+
+2026-06-23 15:17:13,594 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show version', 'netmiko_arguments': {'ssh_extra_args': {'PubkeyAcceptedKeyTypes': '+ssh-rsa', 'HostKeyAlgorithms': '+ssh-rsa'}}} on 1 hosts
+2026-06-23 15:17:14,454 - nornir.core.task -    ERROR -      start() - Host 'switch_nexus': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 32, in netmiko_send_command
+    result = net_connect.send_command(command_string, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/utilities.py", line 653, in wrapper_decorator
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: BaseConnection.send_command() got an unexpected keyword argument 'netmiko_arguments'
+
+2026-06-23 15:18:01,426 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show version'} on 1 hosts
+2026-06-23 15:59:53,698 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_config' with args {'config_commands': ['vlan 10', 'name vlan_production']} on 1 hosts
+2026-06-24 11:18:24,141 -  nornir.core -     INFO -        run() - Running task 'create_vlan_nxapi' with args {} on 1 hosts
+2026-06-24 11:18:24,405 - nornir.core.task -    ERROR -      start() - Host 'switch_nexus': task 'create_vlan_nxapi' failed with traceback:
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 1106, in _validate_conn
+    conn.connect()
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/urllib3/connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/urllib3/connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+               ^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/urllib3/util/ssl_.py", line 433, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/urllib3/util/ssl_.py", line 477, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 1042, in _create
+    self.do_handshake()
+  File "/usr/lib/python3.12/ssl.py", line 1320, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLError: [SSL: UNSUPPORTED_PROTOCOL] unsupported protocol (_ssl.c:1000)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: [SSL: UNSUPPORTED_PROTOCOL] unsupported protocol (_ssl.c:1000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 543, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='192.168.220.120', port=443): Max retries exceeded with url: /ins (Caused by SSLError(SSLError(1, '[SSL: UNSUPPORTED_PROTOCOL] unsupported protocol (_ssl.c:1000)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/nxapi_creation_vlan.py", line 28, in create_vlan_nxapi
+    response = requests.post(
+               ^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/requests/api.py", line 134, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/requests/api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/requests/adapters.py", line 727, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='192.168.220.120', port=443): Max retries exceeded with url: /ins (Caused by SSLError(SSLError(1, '[SSL: UNSUPPORTED_PROTOCOL] unsupported protocol (_ssl.c:1000)')))
+
+2026-06-24 11:21:42,916 -  nornir.core -     INFO -        run() - Running task 'create_vlan_nxapi' with args {} on 1 hosts
+2026-06-24 11:24:33,284 -  nornir.core -     INFO -        run() - Running task 'create_vlan_nxapi' with args {} on 1 hosts
+2026-06-24 11:27:58,965 -  nornir.core -     INFO -        run() - Running task 'create_vlan_nxapi' with args {} on 1 hosts
+2026-06-24 11:33:11,282 -  nornir.core -     INFO -        run() - Running task 'create_vlan_nxapi' with args {} on 1 hosts
+2026-06-24 11:34:14,512 -  nornir.core -     INFO -        run() - Running task 'create_vlan_nxapi' with args {} on 1 hosts
+2026-06-24 11:40:35,818 -  nornir.core -     INFO -        run() - Running task 'create_vlan_nxapi' with args {} on 1 hosts
+2026-06-26 10:59:58,170 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_config' with args {'config_commands': ['vlan 10', 'name vlan_production']} on 1 hosts
+2026-07-01 20:24:26,161 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_config' with args {'config_commands': ['vlan 10', 'name vlan_production']} on 1 hosts
+2026-07-01 20:24:28,678 - nornir.core.task -    ERROR -      start() - Host 'switch_3850': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/base_connection.py", line 1139, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/paramiko/client.py", line 483, in connect
+    self._auth(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/paramiko/client.py", line 814, in _auth
+    raise saved_exception
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/paramiko/client.py", line 801, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/paramiko/transport.py", line 1632, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir_netmiko/tasks/netmiko_send_config.py", line 28, in netmiko_send_config
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/ssh_dispatcher.py", line 516, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/base_connection.py", line 490, in __init__
+    self._open()
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/base_connection.py", line 495, in _open
+    self.establish_connection()
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/base_connection.py", line 1176, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.exceptions.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_ios 192.168.28.2:22
+
+
+Authentication failed.
+
+2026-07-01 20:29:29,301 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_config' with args {'config_commands': ['vlan 10', 'name vlan_production']} on 1 hosts
+2026-07-01 20:29:31,734 - nornir.core.task -    ERROR -      start() - Host 'switch_3850': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/base_connection.py", line 1139, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/paramiko/client.py", line 483, in connect
+    self._auth(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/paramiko/client.py", line 814, in _auth
+    raise saved_exception
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/paramiko/client.py", line 801, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/paramiko/transport.py", line 1632, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir_netmiko/tasks/netmiko_send_config.py", line 28, in netmiko_send_config
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/ssh_dispatcher.py", line 516, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/base_connection.py", line 490, in __init__
+    self._open()
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/base_connection.py", line 495, in _open
+    self.establish_connection()
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/base_connection.py", line 1176, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.exceptions.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_ios 192.168.28.2:22
+
+
+Authentication failed.
+
+2026-07-01 20:30:48,820 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_config' with args {'config_commands': ['vlan 10', 'name vlan_production']} on 1 hosts
+2026-07-01 20:30:51,279 - nornir.core.task -    ERROR -      start() - Host 'switch_cisco': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/base_connection.py", line 1139, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/paramiko/client.py", line 483, in connect
+    self._auth(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/paramiko/client.py", line 814, in _auth
+    raise saved_exception
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/paramiko/client.py", line 801, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/paramiko/transport.py", line 1632, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir_netmiko/tasks/netmiko_send_config.py", line 28, in netmiko_send_config
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/ssh_dispatcher.py", line 516, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/base_connection.py", line 490, in __init__
+    self._open()
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/base_connection.py", line 495, in _open
+    self.establish_connection()
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/base_connection.py", line 1176, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.exceptions.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_ios 192.168.28.2:22
+
+
+Authentication failed.
+
+2026-07-01 20:31:31,377 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_config' with args {'config_commands': ['vlan 10', 'name vlan_production']} on 1 hosts
+2026-07-01 20:31:31,379 - nornir.core.task -    ERROR -      start() - Host 'switch_cisco': task 'netmiko_send_config' failed with traceback:
+Traceback (most recent call last):
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir_netmiko/tasks/netmiko_send_config.py", line 28, in netmiko_send_config
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idriss/Network_Automation/venv/lib/python3.12/site-packages/netmiko/ssh_dispatcher.py", line 512, in ConnectHandler
+    raise ValueError(
+ValueError: Unsupported 'device_type' currently supported platforms are: 
+a10
+accedian
+adtran_os
+adva_fsp150f2
+adva_fsp150f3
+alaxala_ax26s
+alaxala_ax36s
+alcatel_aos
+alcatel_sros
+allied_telesis_awplus
+apc_aos
+apresia_aeos
+arista_eos
+arris_cer
+aruba_aoscx
+aruba_os
+aruba_osswitch
+aruba_procurve
+asterfusion_asternos
+audiocode_66
+audiocode_72
+audiocode_shell
+avara_aos
+avaya_ers
+avaya_vsp
+aviat_wtm
+bintec_boss
+broadcom_icos
+brocade_fastiron
+brocade_fos
+brocade_netiron
+brocade_nos
+brocade_vdx
+brocade_vyos
+calix_b6
+calix_exa
+casa_cmts
+cdot_cros
+centec_os
+checkpoint_gaia
+ciena_saos
+ciena_saos10
+ciena_waveserver
+cisco_ap
+cisco_apic
+cisco_asa
+cisco_ftd
+cisco_ios
+cisco_ioswlc
+cisco_nxos
+cisco_s200
+cisco_s300
+cisco_s500
+cisco_tp
+cisco_viptela
+cisco_wlc
+cisco_xe
+cisco_xr
+cloudgenix_ion
+corelight_linux
+coriant
+cumulus_linux
+dell_dnos9
+dell_force10
+dell_isilon
+dell_os10
+dell_os6
+dell_os9
+dell_powerconnect
+dell_sonic
+digi_transport
+dlink_ds
+edgecore_sonic
+ekinops_ek360
+eltex
+eltex_esr
+endace
+enterasys
+ericsson_ipos
+ericsson_mltn63
+ericsson_mltn66
+extreme
+extreme_ers
+extreme_exos
+extreme_netiron
+extreme_nos
+extreme_slx
+extreme_tierra
+extreme_vdx
+extreme_vsp
+extreme_wing
+f5_linux
+f5_ltm
+f5_tmsh
+fiberstore_fsos
+fiberstore_fsosv2
+fiberstore_networkos
+flexvnf
+fortinet
+fsas_sir
+fujitsu_sir
+furukawa_fitelnet
+garderos_grs
+generic
+generic_termserver
+h3c_comware
+hillstone_stoneos
+hirschmann_hios
+hp_comware
+hp_procurve
+huawei
+huawei_olt
+huawei_ont
+huawei_smartax
+huawei_smartaxmmi
+huawei_vrp
+huawei_vrpv8
+iij_seilos
+infinera_packet
+ipinfusion_ocnos
+juniper
+juniper_junos
+juniper_screenos
+keymile
+keymile_nos
+lancom_lcossx4
+lancom_lcossx5
+linux
+maipu
+mellanox
+mellanox_mlnxos
+mikrotik_routeros
+mikrotik_switchos
+moxa_nos
+mrv_lx
+mrv_optiswitch
+nec_ix
+netapp_cdot
+netgear_prosafe
+netscaler
+nokia_isam
+nokia_srl
+nokia_sros
+oneaccess_oneos
+opengear_linux
+ovs_linux
+paloalto_panos
+perle_iolan
+pluribus
+quanta_mesh
+rad_etx
+raisecom_roap
+raisecom_ros
+ruckus_fastiron
+ruijie_os
+silverpeak_vxoa
+sixwind_os
+smartoptics_dwdm
+sophos_sfos
+supermicro_smis
+telcosystems_binos
+teldat_cit
+tplink_jetstream
+ubiquiti_edge
+ubiquiti_edgerouter
+ubiquiti_edgeswitch
+ubiquiti_unifiswitch
+vertiv_mph
+vyatta_vyos
+vyos
+watchguard_fireware
+yamaha
+zpe_nodegrid
+zte_zxros
+zyxel_os
+
+2026-07-01 20:32:21,555 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_config' with args {'config_commands': ['vlan 10', 'name vlan_production']} on 1 hosts
