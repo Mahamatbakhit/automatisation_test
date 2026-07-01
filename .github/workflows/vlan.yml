@@ -1,0 +1,32 @@
+name: Deploiement VLAN avec Nornir (Local Auth)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy_vlan:
+    runs-on: self-hosted
+
+    steps:
+      # 1. Récupérer le code (y compris ton hosts.yaml)
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      # 2. Configurer Python
+      - name: Configuration de Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # 3. Installer Nornir et Netmiko
+      - name: Installation des dépendances
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # 4. Lancer le script (Nornir lira le hosts.yaml automatiquement)
+      - name: Execution du script Nornir
+        run: |
+          python create_vlan.py
