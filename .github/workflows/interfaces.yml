@@ -1,0 +1,19 @@
+name: Verification Etat Interfaces
+
+on:
+  workflow_dispatch: # Déclenchement manuel depuis GitHub ou via la CLI "gh"
+  push:
+    tags:
+      - 'status*' # Déclenchement si tu pousses un tag comme "status-check"
+
+jobs:
+  check_ports:
+    runs-on: self-hosted
+
+    steps:
+      - name: Recuperation du code
+        uses: actions/checkout@v4
+
+      - name: Execution du script de verification
+        run: |
+          /home/idriss/Network_Automation/venv/bin/python3.12 show_interfaces.py
