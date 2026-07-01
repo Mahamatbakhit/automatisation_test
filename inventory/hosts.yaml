@@ -1,5 +1,5 @@
 switch_cisco:
-  hostname: 192.168.28.2
+  hostname: 192.168.28.3
   username: cisco
   password: Cisco123
   platform: cisco_ios
