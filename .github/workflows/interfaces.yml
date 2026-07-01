@@ -16,4 +16,4 @@ jobs:
 
       - name: Execution du script de verification
         run: |
-          /home/idriss/Network_Automation/venv/bin/python3.12 show_interfaces.py
+          /home/idriss/Network_Automation/venv/bin/python3.12 -u show_interfaces.py
